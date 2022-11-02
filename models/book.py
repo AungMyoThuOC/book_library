@@ -1,4 +1,3 @@
-from unicodedata import name
 from db import db
 
 class BookModel(db.Model):

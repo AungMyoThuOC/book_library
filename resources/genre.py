@@ -29,7 +29,7 @@ class Genre(Resource):
         return author.json(), 201
 
 class GenreList(Resource):
-    def get(self, genre):
+    def get(self):
         genres = GenreModel.query.all()
         return {"Genre lsit" : [genre.json() for genre in genres]}
 

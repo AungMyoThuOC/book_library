@@ -1,6 +1,6 @@
 from flask import Flask
 from flask_restful import Api
-from flask_jwt_extended import JWTManager
+#from flask_jwt_extended import JWTManager
 from db import db
 from security import authenticate, identity
 from resources.author import Authors, AuthorList, SearchAuthor
@@ -20,19 +20,19 @@ api.add_resource(Authors, '/author/add')
 api.add_resource(AuthorList, '/authors/all')
 api.add_resource(SearchAuthor, '/author/<string:author>')
 
-# api.add_resource(Books, '/book/add')
-# api.add_resource(BookList, '/books')
+api.add_resource(Books, '/book/add')
+api.add_resource(BookList, '/books')
 # api.add_resource(SearchByLang, 'books/lang/<string:lang>')
-# api.add_resource(SearchByBookName, '/books/<string:name>')
-# api.add_resource(DeleteBook, '/book/delete/<int:b_id>')
+api.add_resource(SearchByBookName, '/books/<string:name>')
+api.add_resource(DeleteBook, '/book/delete/<int:b_id>')
 
-# api.add_resource(Genre, '/genre/add')
-# api.add_resource(GenreList, '/genre/all')
-# api.add_resource(SearchGenre, '/genre/<string:genre>')
+api.add_resource(Genre, '/genre/add')
+api.add_resource(GenreList, '/genre/all')
+api.add_resource(SearchGenre, '/genre/<string:genre>')
 
-# api.add_resource(UserRegister, '/register')
-# api.add_resource(UserList, '/alluser')
-# api.add_resource(User, '/user/<int:uid>')
+api.add_resource(UserRegister, '/register')
+api.add_resource(UserList, '/alluser')
+api.add_resource(User, '/user/<int:uid>')
 
 @app.before_first_request
 def create_table():
